@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+    
+    <style>
+        .main{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background:linear-gradient(rgb(140, 255, 0),deepskyblue);
+    height:850px ;
+    width: 124%;
+    border-radius: 25px;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+h1{
+    position: relative;
+    
+}
+table{
+    border: 1px ;
+    border-radius: 20px;
+    box-shadow: 5px 5px 30px;
+    background:linear-gradient(gray,white);
+    padding: 50px ;
+    font-family: fantasy;
+}
+button{
+    cursor: pointer;
+    height: 80px;
+    width: 250px;
+    background-color: plum;
+    border-radius: 20px;
+    border: none;
+
+    
+}
+button:hover{
+    color: rgb(77, 42, 165);
+}
+input,textarea{
+    background-color: antiquewhite;
+    color: black;
+    border: 1px solid black;
+    background: transparent;
+}
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="left">
+            <h1> Contact Details </h1>
+            <h3><strong><i class="fa-solid fa-user"></i></strong> KAMALESH SB</h3>
+            <p><strong><i class="fa-solid fa-envelope"></i></strong> kamaleshsb24@gmail.com</p>
+            <p><strong><i class="fa-solid fa-location-dot"></i></strong> 27,4/11, North car street, Paramakudi 623701</p>
+            <p><strong><i class="fa-solid fa-phone"></i></strong> 9629328924</p>
+            <p><strong><i class="fa-brands fa-github"></i></strong> KAMALESH-SB</p>
+        </div>
+        <div class="right">
+            <table>
+           
+                <tr class="name">
+                    <td>
+                    NAME
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" required> 
+                    </td>
+                </tr>
+                <tr class="name">
+                    <td>
+                    EMAIL
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="email" required>
+                    </td>
+                </tr>
+                <tr class="name">
+                    <td>
+                    MESSAGE
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <textarea name="" id="" cols="30" rows="10"> </textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+    
+                        <button>Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
