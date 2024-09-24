@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
         * {
@@ -14,10 +13,12 @@
         }
         body {
             font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
         .main {
             width: 100%;
-            background: url('bg.jpg') no-repeat center center/cover;
             height: 100vh;
             position: relative;
         }
@@ -28,6 +29,7 @@
             padding: 15px 0;
             align-items: center;
             justify-content: space-between;
+            margin-top: 50px;
         }
         .navbar .logo {
             width: 160px;
@@ -46,14 +48,14 @@
             font-weight: bold;
             text-decoration: none;
             color: darkslategrey;
-            transition: .4s ease;
+            transition: color .4s ease;
         }
         ul li a:hover {
             color: rgb(230, 104, 59);
         }
         .info {
             margin-left: 7%;
-            margin-top: 6%;
+            margin-top: 10%;
         }
         .info h1 {
             font-size: 65px;
@@ -75,17 +77,17 @@
             padding: 10px 18px;
             border-radius: 10px;
             display: inline-block;
-            transition: .4s ease;
+            transition: background .4s ease;
         }
         .info a:hover {
             background: rgb(59, 174, 209);
         }
         .image {
             width: 30%;
-            height: 60%;
+            height: 45%;
             position: absolute;
             right: 100px;
-            bottom: 0;
+            bottom: 190px;
         }
         .image img {
             position: absolute;
@@ -94,6 +96,7 @@
             transform: translate(-50%);
             bottom: 0;
             transition: left 2s ease;
+            border-radius: 30%;
         }
         .image:hover .me {
             left: 55%;
@@ -105,25 +108,92 @@
         .social-icons a {
             margin: 0 10px;
             font-size: 24px;
-            color: rgb(170, 50, rgb(255, 0, 251));
+            color: rgb(170, 50, 255);
             transition: color 0.4s ease;
         }
         .social-icons a:hover {
             color: rgb(230, 104, 59);
         }
+
+        /* Dark Mode Styling */
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .dark-mode .navbar a {
+            color: #e0e0e0;
+        }
+        .dark-mode .navbar a:hover {
+            color: rgb(59, 174, 209);
+        }
+        .dark-mode .info h1 {
+            color: #ffffff;
+        }
+        .dark-mode .info a {
+            background: #e0e0e0;
+            color: rgb(36, 32, 30);
+        }
+        .dark-mode .info a:hover {
+            background: rgb(36, 32, 30);
+            color: #ffffff;
+        }
+        .dark-mode .social-icons a {
+            color: #ffffff;
+        }
+        .dark-mode .social-icons a:hover {
+            color: rgb(59, 174, 209);
+        }
+
+        /* Dark Mode Toggle Icon */
+        #darkModeToggle i {
+            font-size: 20px;
+        }
+        .my-work {
+    margin: 100px 7%;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+.my-work h2 {
+    font-size: 30px;
+    color: rgb(36, 32, 30);
+    margin-bottom: 20px;
+}
+.my-work .work-info h3 {
+    font-size: 24px;
+    color: rgb(230, 104, 59);
+}
+.my-work .work-info p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+.dark-mode .my-work {
+    background-color: #222;
+    color: #e0e0e0;
+}
+.dark-mode .my-work h2, .dark-mode .my-work .work-info h3 {
+    color: #e0e0e0;
+}
+
     </style>
 </head>
 <body>
     <div class="main">
         <div class="navbar">
-            
             <ul>
                 <li><a href="#">HOME</a></li>
                 <li><a href="#">ABOUT</a></li>
                 <li><a href="#">SKILL</a></li>
-                <li><a href="#">MY WORKS</a></li>
-                <li><a href="#">CONTACT</a></li>
+                <li><a href="#my-work">MY WORK</a></li>
+
+                <li><a href="mediaquery.html">RESUME</a></li>
             </ul>
+            <!-- Dark Mode Toggle Button -->
+            <button id="darkModeToggle" style="padding: 10px; border-radius: 5px; cursor: pointer;">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
         <div class="info">
             <h3>Hi, I am <span>KAMALESH.</span></h3>
@@ -143,5 +213,46 @@
             <img src="ak.jpeg" class="me" alt="Kamalesh">
         </div>
     </div>
+    <div class="my-work" id="my-work">
+        <h2>My Work</h2>
+        <div class="work-info">
+            <h3>Technical Supervisor at MRF Tyre Company</h3>
+            <p>
+                As a Technical Supervisor at MRF Tyre Company, I have been responsible for overseeing the manufacturing process, ensuring quality control, and leading a team of engineers. 
+                I coordinate with cross-functional teams to ensure that production targets are met while adhering to strict safety protocols.
+            </p>
+            <p>
+                My role also involves implementing innovative solutions to increase efficiency, managing day-to-day operations, and optimizing the use of technology for predictive maintenance of machinery. 
+                I have consistently achieved a 15% improvement in production speed while reducing downtime by 20%.
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript to toggle dark mode
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Toggle between sun and moon icon
+            if(body.classList.contains('dark-mode')) {
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+    </script>
 </body>
 </html>
