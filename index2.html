@@ -178,47 +178,52 @@
         }
 
         // JavaScript for Form Validation
-        const contactForm = document.getElementById('contactForm');
+const contactForm = document.getElementById('contactForm');
 
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
+contactForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
 
-            // Clear previous error messages
-            document.getElementById('nameError').textContent = '';
-            document.getElementById('emailError').textContent = '';
-            document.getElementById('addressError').textContent = '';
+    // Clear previous error messages
+    document.getElementById('nameError').textContent = '';
+    document.getElementById('emailError').textContent = '';
+    document.getElementById('addressError').textContent = '';
 
-            let valid = true;
+    let valid = true;
+    let errorMessages = [];
 
-            // Validate Name
-            const name = document.getElementById('name').value;
-            if (name.trim() === '') {
-                document.getElementById('nameError').textContent = 'Please enter your name.';
-                valid = false;
-            }
+    // Validate Name
+    const name = document.getElementById('name').value;
+    if (name.trim() === '') {
+        errorMessages.push('Please enter your name.');
+        valid = false;
+    }
 
-            // Validate Email
-            const email = document.getElementById('email').value;
-            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-            if (!emailPattern.test(email)) {
-                document.getElementById('emailError').textContent = 'Please enter a valid email.';
-                valid = false;
-            }
+    // Validate Email
+    const email = document.getElementById('email').value;
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!emailPattern.test(email)) {
+        errorMessages.push('Please enter a valid email.');
+        valid = false;
+    }
 
-            // Validate Address
-            const address = document.getElementById('address').value;
-            if (address.trim() === '') {
-                document.getElementById('addressError').textContent = 'Please enter your address.';
-                valid = false;
-            }
+    // Validate Address
+    const address = document.getElementById('address').value;
+    if (address.trim() === '') {
+        errorMessages.push('Please enter your address.');
+        valid = false;
+    }
 
-            // If valid, close modal and reset form
-            if (valid) {
-                alert('Form submitted successfully!');
-                modal.style.display = "none";
-                contactForm.reset();
-            }
-        });
+    // If not valid, show alert with all error messages
+    if (!valid) {
+        alert(errorMessages.join('\n'));
+    } else {
+        alert('Form submitted successfully!');
+        modal.style.display = "none";
+        contactForm.reset();
+    }
+});
+
+            
 
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
