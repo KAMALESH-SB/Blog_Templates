@@ -11,9 +11,10 @@
             font-family: 'Times New Roman', Times, serif;
             margin: 0;
             padding: 0;
-            background-color: #150404;
+            background-color: #909390;
         }
 
+       
         .main-container {
             display: flex;
             justify-content: center;
@@ -21,11 +22,12 @@
             margin-top: 50px;
         }
 
+       
         .info {
             width: 20%;
             margin-right: 30px;
             text-align: left;
-            background-color: #203135;
+            background-color: #eded76;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -42,9 +44,10 @@
             color: #34495e;
         }
 
+        
         .container {
-            width: 30%;
-            background-color: #ffffff;
+            width: 28%;
+            background-color: #c1e3f6;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -71,9 +74,10 @@
             font-size: 16px;
         }
 
+        
         input[type="submit"] {
             padding: 12px;
-            background: linear-gradient(135deg, #88ff92, #4fe5ff);
+            background: linear-gradient(135deg, #9aff63, #cb3b3b);
             color: white;
             border: none;
             border-radius: 30px;
@@ -85,16 +89,20 @@
             transition: all 0.3s ease;
         }
 
-      
+        input[type="submit"]:hover {
+            background: linear-gradient(135deg, #5a54d6, #32358c);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+        }
 
+       
         @media only screen and (max-width: 768px) {
             .main-container {
                 flex-direction: column;
                 align-items: center;
             }
 
-            .info,
-            .container {
+            .info, .container {
                 width: 80%;
                 margin-right: 0;
             }
@@ -104,9 +112,12 @@
 
 <body>
     <div class="main-container">
+        
+      
 
+        
         <div class="container">
-            <form id="contactForm">
+            <form action="#" method="post">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" required>
 
@@ -120,45 +131,6 @@
             </form>
         </div>
     </div>
-
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function (event) {
-           
-            event.preventDefault();
-
-          
-            const username = document.getElementById('username').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const comments = document.getElementById('comments').value.trim();
-
-           
-            if (username === '') {
-                alert('Please enter your username.');
-                return;
-            }
-
-            if (email === '') {
-                alert('Please enter your email.');
-                return;
-            }
-
-           
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            if (comments === '') {
-                alert('Please enter your comments.');
-                return;
-            }
-
-            alert('Form submitted successfully!');
-
-           
-        });
-    </script>
 </body>
 
 </html>
