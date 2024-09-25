@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,10 +32,6 @@
             justify-content: space-between;
             margin-top: 50px;
         }
-        .navbar .logo {
-            width: 160px;
-            cursor: pointer;
-        }
         ul {
             margin-top: -4%;
         }
@@ -61,14 +58,6 @@
             font-size: 65px;
             color: rgb(36, 32, 30);
         }
-        .info h3 {
-            font-size: 18px;
-            letter-spacing: 1px;
-            line-height: 24px;
-        }
-        .info span {
-            color: rgb(230, 104, 59);
-        }
         .info a {
             text-decoration: none;
             color: #fff;
@@ -82,101 +71,51 @@
         .info a:hover {
             background: rgb(59, 174, 209);
         }
-        .image {
-            width: 30%;
-            height: 45%;
-            position: absolute;
-            right: 100px;
-            bottom: 190px;
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
         }
-        .image img {
-            position: absolute;
-            height: 140%;
-            left: 40%;
-            transform: translate(-50%);
-            bottom: 0;
-            transition: left 2s ease;
-            border-radius: 30%;
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
         }
-        .image:hover .me {
-            left: 55%;
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
         }
-        /* Social Media Icons */
-        .social-icons {
-            margin-top: 15px;
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
         }
-        .social-icons a {
-            margin: 0 10px;
-            font-size: 24px;
-            color: rgb(170, 50, 255);
-            transition: color 0.4s ease;
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        .social-icons a:hover {
-            color: rgb(230, 104, 59);
+        .error {
+            color: red;
+            font-size: 12px;
+            font-style: italic;
+            margin-top: 5px;
         }
-
-        /* Dark Mode Styling */
-        .dark-mode {
-            background-color: #121212;
-            color: #e0e0e0;
-        }
-        .dark-mode .navbar a {
-            color: #e0e0e0;
-        }
-        .dark-mode .navbar a:hover {
-            color: rgb(59, 174, 209);
-        }
-        .dark-mode .info h1 {
-            color: #ffffff;
-        }
-        .dark-mode .info a {
-            background: #e0e0e0;
-            color: rgb(36, 32, 30);
-        }
-        .dark-mode .info a:hover {
-            background: rgb(36, 32, 30);
-            color: #ffffff;
-        }
-        .dark-mode .social-icons a {
-            color: #ffffff;
-        }
-        .dark-mode .social-icons a:hover {
-            color: rgb(59, 174, 209);
-        }
-
-        /* Dark Mode Toggle Icon */
-        #darkModeToggle i {
-            font-size: 20px;
-        }
-        .my-work {
-    margin: 100px 7%;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
-.my-work h2 {
-    font-size: 30px;
-    color: rgb(36, 32, 30);
-    margin-bottom: 20px;
-}
-.my-work .work-info h3 {
-    font-size: 24px;
-    color: rgb(230, 104, 59);
-}
-.my-work .work-info p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-top: 10px;
-}
-.dark-mode .my-work {
-    background-color: #222;
-    color: #e0e0e0;
-}
-.dark-mode .my-work h2, .dark-mode .my-work .work-info h3 {
-    color: #e0e0e0;
-}
-
     </style>
 </head>
 <body>
@@ -184,14 +123,12 @@
         <div class="navbar">
             <ul>
                 <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT</a></li>
+                <li><a href="about.html">ABOUT</a></li>
                 <li><a href="#">SKILL</a></li>
                 <li><a href="#my-work">MY WORK</a></li>
-
                 <li><a href="mediaquery.html">RESUME</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="#" id="contactBtn">CONTACT</a></li>
             </ul>
-            <!-- Dark Mode Toggle Button -->
             <button id="darkModeToggle" style="padding: 10px; border-radius: 5px; cursor: pointer;">
                 <i class="fas fa-moon"></i>
             </button>
@@ -201,59 +138,143 @@
             <h1><span>W</span>EB <span>D</span>ESIGNER</h1>
             <h3>Web designer and developer from Madurai.<br>I create websites to help businesses do better online.</h3>
             <a href="#">Hire me</a>
-
-            <!-- Social Media Section -->
-            <div class="social-icons">
-                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-        <div class="image">
-            <img src="ak.jpeg" class="me" alt="Kamalesh">
-        </div>
-    </div>
-    <div class="my-work" id="my-work">
-        <h2>My Work</h2>
-        <div class="work-info">
-            <h3>Technical Supervisor at MRF Tyre Company</h3>
-            <p>
-                As a Technical Supervisor at MRF Tyre Company, I have been responsible for overseeing the manufacturing process, ensuring quality control, and leading a team of engineers. 
-                I coordinate with cross-functional teams to ensure that production targets are met while adhering to strict safety protocols.
-            </p>
-            <p>
-                My role also involves implementing innovative solutions to increase efficiency, managing day-to-day operations, and optimizing the use of technology for predictive maintenance of machinery. 
-                I have consistently achieved a 15% improvement in production speed while reducing downtime by 20%.
-            </p>
         </div>
     </div>
     
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contact Me</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name">
+                <div class="error" id="nameError"></div>
+                <input type="email" id="email" placeholder="Your Email">
+                <div class="error" id="emailError"></div>
+                <textarea id="address" placeholder="Your Address" rows="4"></textarea>
+                <div class="error" id="addressError"></div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
     <script>
-        // JavaScript to toggle dark mode
+        // JavaScript for Modal
+        const contactBtn = document.getElementById('contactBtn');
+        const modal = document.getElementById('contactModal');
+        const closeBtn = document.getElementsByClassName('close')[0];
+        
+        contactBtn.onclick = function() {
+            modal.style.display = "block";
+        }
+        
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // JavaScript for Form Validation
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Clear previous error messages
+            document.getElementById('nameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('addressError').textContent = '';
+
+            let valid = true;
+            let errorMessages = [];
+
+            // Validate Name
+            const name = document.getElementById('name').value;
+            if (name.trim() === '') {
+                errorMessages.push('Please enter your name.');
+                valid = false;
+            }
+
+            // Validate Email
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!emailPattern.test(email)) {
+                errorMessages.push('Please enter a valid email.');
+                valid = false;
+            }
+
+            // Validate Address
+            const address = document.getElementById('address').value;
+            if (address.trim() === '') {
+                errorMessages.push('Please enter your address.');
+                valid = false;
+            }
+
+            // If not valid, show alert with all error messages
+            if (!valid) {
+                alert(errorMessages.join('\n'));
+            } else {
+                alert('Form submitted successfully!');
+                modal.style.display = "none";
+                contactForm.reset();
+            }
+        });
+
+        // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
 
         darkModeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-            
-            // Toggle between sun and moon icon
+
             if(body.classList.contains('dark-mode')) {
                 darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
             } else {
                 darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
             }
         });
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
-
     </script>
 </body>
 </html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e9ecef;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 28px;
+            margin-top: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
