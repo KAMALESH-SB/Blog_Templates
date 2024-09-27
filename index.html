@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -176,10 +177,62 @@
 .dark-mode .my-work h2, .dark-mode .my-work .work-info h3 {
     color: #e0e0e0;
 }
+.main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-image: url('bg.jpg.jpg'); /* Add your background image */
+    background-size: cover; /* Make the image cover the entire area */
+    background-position: center; /* Center the image */
+}
+<style>
+    /* Other CSS styles remain unchanged */
+
+    /* Dark Mode Styling */
+    .dark-mode {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+    .dark-mode .navbar a {
+        color: #e0e0e0;
+    }
+    .dark-mode .navbar a:hover {
+        color: rgb(59, 174, 209);
+    }
+    .dark-mode .info h1 {
+        color: #ffffff;
+    }
+    .dark-mode .info a {
+        background: #e0e0e0;
+        color: rgb(36, 32, 30);
+    }
+    .dark-mode .info a:hover {
+        background: rgb(36, 32, 30);
+        color: #ffffff;
+    }
+    .dark-mode .social-icons a {
+        color: #ffffff;
+    }
+    .dark-mode .social-icons a:hover {
+        color: rgb(59, 174, 209);
+    }
+
+    /* Ensure the main section uses dark mode styles */
+    .dark-mode .main {
+        background-color: #121212; /* Dark background for the main section */
+        background-image: none; /* Remove the background image in dark mode */
+    }
+
+    /* Additional styles remain unchanged */
+</style>
+
+
+
 
     </style>
 </head>
 <body>
+    
     <div class="main">
         <div class="navbar">
             <ul>
@@ -216,6 +269,7 @@
     </div>
     <div class="my-work" id="my-work">
         <h2>My Work</h2>
+        <img src="mrf-logo.png" alt="MRF Logo" style="width: 150px; margin-bottom: 20px;"> <!-- Add this line -->
         <div class="work-info">
             <h3>Technical Supervisor at MRF Tyre Company</h3>
             <p>
@@ -227,6 +281,8 @@
                 I have consistently achieved a 15% improvement in production speed while reducing downtime by 20%.
             </p>
         </div>
+    </div>
+    
     </div>
     
     <script>
