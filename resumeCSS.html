@@ -134,6 +134,13 @@
     </style>
 </head>
 <body>
+    <!-- Back Button -->
+<div style="padding: 10px; margin: 20px;">
+    <button id="backButton" style="padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </button>
+</div>
+
     <div class="theme-toggle">
         <i id="theme-icon" class="fa fa-moon"></i>
     </div>
@@ -253,6 +260,13 @@
                 themeIcon.classList.add('fa-moon');
             }
         });
+        
+    const backButton = document.getElementById('backButton');
+    backButton.addEventListener('click', function() {
+        window.location.href = 'index.html'; // Redirect to home page
+    });
+
+
     </script>
 </body>
 </html>
