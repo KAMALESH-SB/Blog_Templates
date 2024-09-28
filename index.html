@@ -286,6 +286,13 @@
     </div>
     
     <script>
+        
+    const backButton = document.getElementById('backButton');
+    backButton.addEventListener('click', function() {
+        window.location.href = 'index.html'; // Redirect to home page
+    });
+
+
         // JavaScript to toggle dark mode
         const darkModeToggle = document.getElementById('darkModeToggle');
         const body = document.body;
