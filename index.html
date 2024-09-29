@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +22,6 @@
             height: 100vh;
             position: relative;
         }
-        
         
         .navbar {
             width: 86%;
@@ -134,13 +132,11 @@
             color: #ffffff;
         }
         .dark-mode .info a {
-            background:none;
-            color: rgb(36,32,30);
+            color: rgb(170,50,25);
             
         }
         .dark-mode .info a:hover {
-            background: rgb(36,32,30);
-            color:#ffffff;
+            background: rgb(230,104,59);
             
         }
         .dark-mode .social-icons a {
@@ -190,10 +186,23 @@
     background-size: cover; /* Make the image cover the entire area */
     background-position: center; /* Center the image */
 }
-<style>
-    /* Other CSS styles remain unchanged */
 
-    /* Dark Mode Styling */
+  #btn1{
+    font-size:16px;
+            font-weight:500;
+            padding: 12px 35px;
+            background-color: rgb(138, 133, 140);
+            border-radius:10px;
+            border:1px solid rgb(255,255,255);
+            color:white;
+            display:inline-block;
+            white-space:nowrap;
+            transition:all 0.3s ease;
+            width:auto;
+  }
+  #btn1:hover{
+    background-color: rgb(230, 104, 59);;
+  }
     .dark-mode {
         background-color: #121212;
         color: #e0e0e0;
@@ -228,23 +237,13 @@
         background-color: #121212; /* Dark background for the main section */
         background-image: none; /* Remove the background image in dark mode */
     }
-        #btn1{
-            font-size:16px;
-            font-weight:500;
-            padding: 12px 35px;
-            background-color: rgb(138,133,140);
-            border-radius:40px;
-            border:1px solid rgb(255,255,255);
-            color:white;
-            display:inline-block;
-            white-space:nowrap;
-            transition:all 0.3s ease;
-            width:auto
-        }
-        #btn1:hover{
-            background-color: rgb(230,104,59);
-        }
+
 </style>
+
+
+
+
+
 </head>
 <body>
     
@@ -269,7 +268,7 @@
             <h3>Hi, I am <span>KAMALESH.</span></h3>
             <h1><span>W</span>EB <span>D</span>ESIGNER</h1>
             <h3>Web designer and developer from Madurai.<br>I create websites to help businesses do better online.</h3>
-            <a href="Form.html" class="btn1">Hire me</a>
+            <a href="Form.html"  id="btn1">Hire me</a>
 
             <!-- Social Media Section -->
             <div class="social-icons">
